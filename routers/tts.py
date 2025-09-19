@@ -6,6 +6,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException, BackgroundTasks,
 # Add these global variables for job tracking
 job_statuses = {}
 JOB_RESULTS_DIR = os.path.join(os.getcwd(), "job_results")
+MAX_FILE_SIZE = int(os.getenv("MAX_FILE_SIZE", 50 * 1024 * 1024))
 os.makedirs(JOB_RESULTS_DIR, exist_ok=True)
 router = APIRouter()
 
